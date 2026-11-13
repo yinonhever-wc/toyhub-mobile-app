@@ -1,7 +1,19 @@
+import {
+  Montserrat_200ExtraLight,
+  Montserrat_300Light,
+  Montserrat_400Regular,
+  Montserrat_500Medium,
+  Montserrat_600SemiBold,
+  Montserrat_700Bold,
+  useFonts
+} from "@expo-google-fonts/montserrat";
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import type { ComponentProps } from "react";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect, type ComponentProps } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+SplashScreen.preventAutoHideAsync();
 
 type IconName = ComponentProps<typeof Ionicons>["name"];
 
@@ -13,9 +25,30 @@ const TAB_ICONS: Record<string, IconName> = {
 export default function RootLayout() {
   const insets = useSafeAreaInsets();
 
+  const [loaded, error] = useFonts({
+    Montserrat_200ExtraLight,
+    Montserrat_300Light,
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold
+  });
+
+  useEffect(() => {
+    if (loaded || error) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
+  if (!loaded && !error) return null;
+
   return (
     <Tabs
       screenOptions={({ route }) => ({
+        headerTitleStyle: {
+          fontFamily: "Montserrat_200ExtraLight",
+          fontSize: 30
+        },
         tabBarShowLabel: false,
         tabBarLabelPosition: "beside-icon",
         tabBarStyle: {
@@ -23,15 +56,13 @@ export default function RootLayout() {
           paddingBottom: insets.bottom,
           paddingTop: 0
         },
-        tabBarIcon: ({ color }) => {
-          return (
-            <Ionicons
-              name={TAB_ICONS[route.name]}
-              size={28}
-              color={color as string}
-            />
-          );
-        }
+        tabBarIcon: ({ color }) => (
+          <Ionicons
+            name={TAB_ICONS[route.name]}
+            size={28}
+            color={typeof color === "string" ? color : undefined}
+          />
+        )
       })}
     >
       <Tabs.Screen name="index" options={{ title: "Home" }} />
