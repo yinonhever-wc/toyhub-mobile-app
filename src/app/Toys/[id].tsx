@@ -4,7 +4,6 @@ import { Text, View } from "react-native";
 export default function ToyDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const pathname = usePathname();
-  console.log("ToyDetail render", { id, pathname });
 
   return (
     <View style={{ flex: 1, backgroundColor: "yellow", padding: 24 }}>
