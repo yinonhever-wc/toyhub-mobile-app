@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextProps, TextStyle } from "react-native";
+import { StyleSheet, Text, type TextProps, type TextStyle } from "react-native";
 
 const WEIGHTS: Record<string, string> = {
   "200": "Montserrat_200ExtraLight",

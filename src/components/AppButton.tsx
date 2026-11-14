@@ -9,17 +9,19 @@ import {
 } from "react-native";
 import { AppText } from "./AppText";
 
+interface AppButtonProps extends TouchableOpacityProps {
+  children: ReactNode;
+  color: keyof typeof colors;
+  textStyle?: StyleProp<TextStyle>;
+}
+
 export function AppButton({
   children,
   color,
   style,
   textStyle,
   ...props
-}: TouchableOpacityProps & {
-  children: ReactNode;
-  color: keyof typeof colors;
-  textStyle?: StyleProp<TextStyle>;
-}) {
+}: AppButtonProps) {
   return (
     <TouchableOpacity
       style={[styles.button, style, { backgroundColor: colors[color] }]}
