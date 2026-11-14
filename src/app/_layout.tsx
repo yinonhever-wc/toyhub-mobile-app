@@ -48,7 +48,6 @@ export default function RootLayout() {
         headerRight: () => <CartButton />,
         headerRightContainerStyle: { paddingRight: 16 },
         tabBarShowLabel: false,
-        tabBarLabelPosition: "beside-icon",
         tabBarStyle: { height: 55 + insets.bottom },
         tabBarIcon: ({ color, focused }) => (
           <TabBarIcon routeName={route.name} color={color} focused={focused} />
