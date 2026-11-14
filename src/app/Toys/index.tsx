@@ -31,7 +31,6 @@ export default Toys;
 
 export const styles = StyleSheet.create({
   listContainer: {
-    paddingVertical: 28,
     rowGap: 34
   },
   columnWrapper: {
