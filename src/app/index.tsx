@@ -18,7 +18,6 @@ const index = () => {
         <Image
           source={require("@/assets/images/homepage-intro.jpg")}
           style={styles.image}
-          resizeMode="cover"
         />
       </View>
       <View style={[globalStyles.container, styles.content]}>
@@ -53,8 +52,7 @@ const styles = StyleSheet.create({
     height: "100%"
   },
   content: {
-    paddingVertical: 27,
-    flex: 0
+    paddingVertical: 27
   },
   heading: {
     fontSize: 25,
@@ -64,7 +62,6 @@ const styles = StyleSheet.create({
   featureList: {
     gap: 3,
     alignItems: "center",
-    textAlign: "center",
     marginTop: 25,
     marginBottom: 33
   },
@@ -74,6 +71,7 @@ const styles = StyleSheet.create({
     gap: 10
   },
   featureText: {
-    fontSize: 16
+    fontSize: 16,
+    textAlign: "center"
   }
 });

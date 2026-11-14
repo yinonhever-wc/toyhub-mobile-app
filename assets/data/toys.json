@@ -1,0 +1,101 @@
+[
+  {
+    "id": "TOY-1001",
+    "title": "Wooden Train Set",
+    "image": "Wooden train set.jpg",
+    "price": 34.99,
+    "currency": "NZD",
+    "shortDescription": "A colourful wooden steam engine with a matching carriage for little drivers",
+    "longDescription": "The Wooden Train Set brings classic play to the living room floor. The set includes a bright red steam engine with a yellow cab and a green carriage, joined by sturdy magnetic couplings that connect and release with a satisfying click. Each piece is made from smooth, sanded beechwood and finished with non-toxic, water-based paint, so it is safe for small hands and mouths. The chunky wheels roll easily on carpet, wooden floors and track, and the rounded edges stand up to years of enthusiastic play. It encourages storytelling, fine motor skills and hand-eye coordination, and it is compatible with most standard wooden railway tracks. Suitable for ages 2 and up."
+  },
+  {
+    "id": "TOY-1002",
+    "title": "Barnaby the Bear",
+    "image": "F0413DAA-AA98-446F-915B-7C05AA820D66.webp",
+    "price": 24.95,
+    "currency": "NZD",
+    "shortDescription": "A super-soft honey-brown teddy bear with a cheerful red bow tie",
+    "longDescription": "Barnaby is a cuddly companion made for hugs, bedtime stories and big adventures. He is covered in ultra-soft, brushed plush fabric and filled with hypoallergenic polyester stuffing that keeps its shape wash after wash. His embroidered eyes and nose mean there are no small parts to come loose, making him suitable from birth. He has a sewn-on red bow tie, lighter paw pads and a gently weighted base so he can sit up on a shelf or bed. At 30 cm tall, he is the perfect size for small arms and travel bags. Surface washable, and machine washable on a gentle cycle."
+  },
+  {
+    "id": "TOY-1003",
+    "title": "Rainbow Learning Blocks",
+    "image": "Rainbow learning blocks.jpg",
+    "price": 19.99,
+    "currency": "NZD",
+    "shortDescription": "Six chunky stackable blocks in bright colours with letters and numbers",
+    "longDescription": "Rainbow Learning Blocks turn building time into learning time. Each of the six chunky blocks has a different bright colour and is printed with a letter or number, so children can practise early reading and counting while they stack, sort and knock down towers. The blocks are made from lightweight, durable wood with rounded corners and a smooth, splinter-free finish. They are coated in child-safe, non-toxic paint and sized to be easy for toddlers to grip but too large to be a choking hazard. Stacking helps develop balance, spatial awareness, colour recognition and fine motor control. Comes in a reusable cotton storage bag. Suitable for ages 18 months and up."
+  },
+  {
+    "id": "TOY-1004",
+    "title": "Beep-Bot Robot",
+    "image": "Walking robot.webp",
+    "price": 39.95,
+    "currency": "NZD",
+    "shortDescription": "A retro-style walking robot with flashing lights and fun sound effects",
+    "longDescription": "Beep-Bot is a retro-inspired walking robot that brings a little sci-fi fun to playtime. Press the chest button and he walks forward on his sturdy legs, flashing his glowing blue eyes and playing a range of beeps, whirs and robot phrases. His movable arms can be posed for different games, and the antenna and chest panel lights switch on as he moves. Beep-Bot is built from tough, impact-resistant plastic with a metallic finish, and he is designed to survive bumps and falls. Runs on 3 AA batteries (not included), with an on/off switch to save power. A great gift for imaginative play and early curiosity about machines. Suitable for ages 3 and up."
+  },
+  {
+    "id": "TOY-1005",
+    "title": "Rainbow Xylophone",
+    "image": "toy-xylophone.jpg",
+    "price": 22.95,
+    "currency": "NZD",
+    "shortDescription": "An eight-note wooden xylophone with two mallets for budding musicians",
+    "longDescription": "The Rainbow Xylophone introduces children to music through colour and sound. Eight colour-coded metal bars are tuned to a full octave and mounted on a smooth wooden frame, so even beginners can play simple songs by following the colours. Two rounded wooden mallets are included and stored in a built-in slot at the back. The bars ring out with a clear, bright tone, and the rounded frame has no sharp corners. Playing helps develop rhythm, listening skills, colour recognition and hand-eye coordination. A songbook with colour-coded tunes is included. Suitable for ages 3 and up."
+  },
+  {
+    "id": "TOY-1006",
+    "title": "Magnetic Tile Set",
+    "image": "toy-magnetic-tiles.jpg",
+    "price": 44.9,
+    "currency": "NZD",
+    "shortDescription": "Forty translucent magnetic tiles for building colourful towers and shapes",
+    "longDescription": "The Magnetic Tile Set lets children build castles, houses, rockets and anything else they can imagine. The set includes 40 translucent tiles in squares and triangles, each framed in durable plastic with strong, fully sealed magnets in every edge. The tiles snap together with a satisfying click and hold firm, so structures can be built tall and carried around. The translucent colours look great on a window sill or light table. Building with magnets introduces early maths and science ideas such as shapes, symmetry and balance. Includes a storage tub with lid. Suitable for ages 3 and up."
+  },
+  {
+    "id": "TOY-1007",
+    "title": "Jumbo Dino Puzzle",
+    "image": "toy-dino-puzzle.jpg",
+    "price": 16.95,
+    "currency": "NZD",
+    "shortDescription": "A 48-piece floor puzzle featuring friendly dinosaurs in a leafy jungle",
+    "longDescription": "The Jumbo Dino Puzzle is a big, bold floor puzzle that kids can solve on their own or with the whole family. The finished 48-piece picture measures about 90 cm by 60 cm and shows a group of friendly dinosaurs in a bright prehistoric jungle. The pieces are made from thick, sturdy cardboard with a soft-touch finish that resists bending and tearing, and the large size is easy for small hands to handle. Puzzles build problem-solving skills, patience and shape recognition, and the dinosaur theme keeps young explorers engaged. Packed in a sturdy box that doubles as storage. Suitable for ages 4 and up."
+  },
+  {
+    "id": "TOY-1008",
+    "title": "Racing Car Trio",
+    "image": "toy-racing-cars.jpg",
+    "price": 14.99,
+    "currency": "NZD",
+    "shortDescription": "Three pull-back racing cars in bold colours, ready for the starting line",
+    "longDescription": "The Racing Car Trio gives young drivers everything they need for a race on the living room floor. The set includes three sleek pull-back cars in red, blue and yellow, each with its own racing number and sporty decals. Pull a car back, let go, and it zooms across the floor on smooth rolling wheels. The cars are made from tough, shatter-resistant plastic and finished with non-toxic paint. They are sized to fit small hands and most toy garages and tracks. Racing together encourages friendly competition, cause-and-effect thinking and imaginative play. Suitable for ages 3 and up."
+  },
+  {
+    "id": "TOY-1009",
+    "title": "Stacking Rings Tower",
+    "image": "toy-stacking-rings.jpg",
+    "price": 13.95,
+    "currency": "NZD",
+    "shortDescription": "Seven soft-edged rainbow rings that stack in size order on a wobbly base",
+    "longDescription": "The Stacking Rings Tower is a classic first toy that grows with your child. Seven rainbow-coloured rings in graduated sizes slide onto a central post set in a rounded, wobbly base that rocks gently without tipping over. Babies enjoy grasping and chewing the soft-edged rings, while toddlers learn to stack them in order from largest to smallest. The toy is made from BPA-free, food-grade plastic that is easy to wipe clean. Stacking builds hand-eye coordination, size recognition and early problem-solving skills. Suitable for ages 6 months and up."
+  },
+  {
+    "id": "TOY-1010",
+    "title": "Wooden Farm Animals",
+    "image": "toy-farm-animals.jpg",
+    "price": 29.95,
+    "currency": "NZD",
+    "shortDescription": "A set of eight hand-painted wooden farm animals with a little red barn",
+    "longDescription": "The Wooden Farm Animals set brings the countryside to the playroom. It includes eight hand-painted wooden animals — a cow, a pig, a sheep, a horse, a hen, a duck, a goat and a rooster — along with a little red barn that doubles as a storage box. Each animal is crafted from smooth, sustainably sourced wood and finished with non-toxic, water-based paint. The chunky shapes are easy for small hands to hold and stand up on their own for lining up or farm play. Perfect for storytelling, learning animal names and sounds, and imaginative play. Suitable for ages 2 and up."
+  },
+  {
+    "id": "TOY-1011",
+    "title": "Mini Kitchen Playset",
+    "image": "toy-kitchen.jpg",
+    "price": 49.9,
+    "currency": "NZD",
+    "shortDescription": "A pretend kitchen with clicking knobs, a toy hob and play accessories",
+    "longDescription": "The Mini Kitchen Playset gives little chefs a place to cook up their own creations. The wooden kitchen has a toy hob with clicking knobs, a sink with a tap that turns, an oven door that opens and a shelf for storing ingredients. The set comes with a pot, a pan, a spatula and a set of play food pieces to get started. Built from sturdy, smooth-sanded wood and finished with child-safe paint, it stands about 85 cm tall and is steady enough for active play. Pretend cooking encourages role play, language development, sharing and early life skills. Easy assembly with tools included. Suitable for ages 3 and up."
+  }
+]

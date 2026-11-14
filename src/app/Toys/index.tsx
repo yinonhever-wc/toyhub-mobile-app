@@ -1,20 +1,44 @@
-import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import products from "@/assets/data/toys.json";
+import { ProductListing } from "@/components/ProductListing";
+import { globalStyles } from "@/constants/globalStyles";
+import { FlatList, StyleSheet, View } from "react-native";
+
+const NUM_COLUMNS = 2;
+const GUTTER = 16;
 
 const Toys = () => {
-  const toyId = 53;
-
   return (
-    <View>
-      <Text>Toys page content here</Text>
-      <Link style={{ marginTop: 50 }} href="/ShoppingCart">
-        Go to shopping cart
-      </Link>
-      <Link style={{ marginTop: 50 }} href={`/Toys/${toyId}`}>
-        Go to toys details
-      </Link>
-    </View>
+    <FlatList
+      data={products}
+      keyExtractor={item => item.id}
+      numColumns={NUM_COLUMNS}
+      contentContainerStyle={[
+        globalStyles.screen,
+        globalStyles.container,
+        styles.listContainer
+      ]}
+      columnWrapperStyle={styles.columnWrapper}
+      renderItem={({ item }) => (
+        <View style={styles.itemContainer}>
+          <ProductListing product={item} />
+        </View>
+      )}
+    />
   );
 };
 
 export default Toys;
+
+export const styles = StyleSheet.create({
+  listContainer: {
+    paddingVertical: 28,
+    rowGap: 34
+  },
+  columnWrapper: {
+    marginHorizontal: -GUTTER / 2
+  },
+  itemContainer: {
+    width: `${100 / NUM_COLUMNS}%`,
+    paddingHorizontal: GUTTER / 2
+  }
+});
