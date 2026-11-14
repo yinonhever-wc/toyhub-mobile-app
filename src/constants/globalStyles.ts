@@ -5,7 +5,6 @@ export const globalStyles = StyleSheet.create({
     flexGrow: 1
   },
   container: {
-    flex: 1,
     paddingHorizontal: 16
   }
 });

@@ -1,3 +1,4 @@
+import { CartButton } from "@/components/CartButton";
 import { Logo } from "@/components/Logo";
 import {
   Montserrat_200ExtraLight,
@@ -52,6 +53,9 @@ export default function RootLayout() {
           fontFamily: "Montserrat_200ExtraLight",
           fontSize: 30
         },
+        headerTitleContainerStyle: { marginLeft: 16 },
+        headerRight: () => <CartButton />,
+        headerRightContainerStyle: { paddingRight: 16 },
         tabBarShowLabel: false,
         tabBarLabelPosition: "beside-icon",
         tabBarStyle: {
@@ -75,6 +79,7 @@ export default function RootLayout() {
         name="ShoppingCart"
         options={{
           title: "Shopping Cart",
+          headerRight: () => null,
           tabBarItemStyle: { display: "none" }
         }}
       />

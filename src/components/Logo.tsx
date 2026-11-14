@@ -14,7 +14,8 @@ export function Logo() {
       style={{
         fontFamily: "NicoMoji-Regular",
         fontSize: 34,
-        color: colors.secondary
+        color: colors.secondary,
+        transform: [{ translateY: -2 }]
       }}
     >
       ToyHub

@@ -65,8 +65,8 @@ const styles = StyleSheet.create({
     gap: 3,
     alignItems: "center",
     textAlign: "center",
-    marginTop: 27,
-    marginBottom: 35
+    marginTop: 25,
+    marginBottom: 33
   },
   featureItem: {
     flexDirection: "row",

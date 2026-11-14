@@ -35,7 +35,7 @@ export function AppButton({
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
-    borderRadius: 5,
+    borderRadius: 100,
     padding: 9
   },
   text: {
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 13,
     textTransform: "uppercase",
-    letterSpacing: 1
+    letterSpacing: 1,
+    textAlign: "center"
   }
 });
