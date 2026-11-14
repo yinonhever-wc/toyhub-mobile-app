@@ -7,6 +7,7 @@ const WEIGHTS: Record<string, string> = {
   "500": "Montserrat_500Medium",
   "600": "Montserrat_600SemiBold",
   "700": "Montserrat_700Bold",
+  "800": "Montserrat_800ExtraBold",
   light: "Montserrat_300Light",
   normal: "Montserrat_400Regular",
   bold: "Montserrat_700Bold"

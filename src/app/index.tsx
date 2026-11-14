@@ -1,11 +1,79 @@
-import { View, Text } from 'react-native'
+import { AppButton } from "@/components/AppButton";
+import { AppText } from "@/components/AppText";
+import { globalStyles } from "@/constants/globalStyles";
+import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
+
+const FEATURES = [
+  "Affordable prices",
+  "Premium designs",
+  "Adapted to various ages"
+];
 
 const index = () => {
   return (
-    <View>
-      <Text>Landing page content here</Text>
-    </View>
-  )
-}
+    <ScrollView contentContainerStyle={globalStyles.screen}>
+      <View style={styles.imageContainer}>
+        <Image
+          source={require("@/assets/images/homepage-intro.jpg")}
+          style={styles.image}
+          resizeMode="cover"
+        />
+      </View>
+      <View style={[globalStyles.container, styles.content]}>
+        <AppText style={styles.heading}>
+          Find Your Child's Next Favourite Toys
+        </AppText>
+        <View style={styles.featureList}>
+          {FEATURES.map(feature => (
+            <View key={feature} style={styles.featureItem}>
+              <Ionicons name="checkmark" size={25} />
+              <AppText style={styles.featureText}>{feature}</AppText>
+            </View>
+          ))}
+        </View>
+        <AppButton color="primary" onPress={() => router.navigate("/Toys")}>
+          View Toys
+        </AppButton>
+      </View>
+    </ScrollView>
+  );
+};
 
-export default index
+export default index;
+
+const styles = StyleSheet.create({
+  imageContainer: {
+    flex: 1,
+    minHeight: 250
+  },
+  image: {
+    width: "100%",
+    height: "100%"
+  },
+  content: {
+    paddingVertical: 27,
+    flex: 0
+  },
+  heading: {
+    fontSize: 25,
+    fontWeight: "800",
+    textAlign: "center"
+  },
+  featureList: {
+    gap: 3,
+    alignItems: "center",
+    textAlign: "center",
+    marginTop: 27,
+    marginBottom: 35
+  },
+  featureItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10
+  },
+  featureText: {
+    fontSize: 16
+  }
+});

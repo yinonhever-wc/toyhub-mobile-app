@@ -6,7 +6,7 @@ export default function ToyDetail() {
   const pathname = usePathname();
 
   return (
-    <View style={{ flex: 1, backgroundColor: "yellow", padding: 24 }}>
+    <View style={{ flex: 1, padding: 24 }}>
       <Text style={{ color: "black", fontSize: 24 }}>
         Toy ID: {id} ({pathname})
       </Text>

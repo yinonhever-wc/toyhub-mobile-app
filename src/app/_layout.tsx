@@ -6,6 +6,7 @@ import {
   Montserrat_500Medium,
   Montserrat_600SemiBold,
   Montserrat_700Bold,
+  Montserrat_800ExtraBold,
   useFonts
 } from "@expo-google-fonts/montserrat";
 import { Ionicons } from "@expo/vector-icons";
@@ -32,7 +33,8 @@ export default function RootLayout() {
     Montserrat_400Regular,
     Montserrat_500Medium,
     Montserrat_600SemiBold,
-    Montserrat_700Bold
+    Montserrat_700Bold,
+    Montserrat_800ExtraBold
   });
 
   useEffect(() => {
@@ -63,7 +65,8 @@ export default function RootLayout() {
             size={28}
             color={typeof color === "string" ? color : undefined}
           />
-        )
+        ),
+        sceneStyle: { backgroundColor: "#fff" }
       })}
     >
       <Tabs.Screen name="index" options={{ headerTitle: () => <Logo /> }} />
