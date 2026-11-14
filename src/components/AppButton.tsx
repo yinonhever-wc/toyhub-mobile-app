@@ -1,5 +1,4 @@
 import { colors } from "@/constants/colors";
-import type { ReactNode } from "react";
 import {
   StyleSheet,
   TouchableOpacity,
@@ -10,7 +9,6 @@ import {
 import { AppText } from "./AppText";
 
 interface AppButtonProps extends TouchableOpacityProps {
-  children: ReactNode;
   color: keyof typeof colors;
   textStyle?: StyleProp<TextStyle>;
 }
