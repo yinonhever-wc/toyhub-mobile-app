@@ -44,7 +44,9 @@ export default function ToyDetail() {
     >
       <View style={styles.detailContainer}>
         <Image source={getProductImage(product.image)} style={styles.image} />
-        <AppText style={styles.title}>{product.title}</AppText>
+        <AppText style={styles.title} role="heading">
+          {product.title}
+        </AppText>
         <AppText style={styles.price}>${product.price}</AppText>
         <AppText style={styles.productId}>
           <AppText style={styles.productIdLabel}>Product ID</AppText>:{" "}

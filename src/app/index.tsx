@@ -21,7 +21,7 @@ const index = () => {
         />
       </View>
       <View style={globalStyles.container}>
-        <AppText style={styles.heading}>
+        <AppText style={styles.heading} role="heading">
           Find Your Child's Next Favourite Toys
         </AppText>
         <View style={styles.featureList}>

@@ -18,13 +18,19 @@ export function AppButton({
   color,
   style,
   textStyle,
+  disabled,
   ...props
 }: AppButtonProps) {
   return (
     <TouchableOpacity
-      style={[styles.button, style, { backgroundColor: colors[color] }]}
+      style={[
+        styles.button,
+        style,
+        { backgroundColor: colors[color], opacity: disabled ? 0.7 : 1 }
+      ]}
       activeOpacity={0.7}
       accessibilityRole="button"
+      disabled={disabled}
       {...props}
     >
       <AppText style={[styles.text, textStyle]}>{children}</AppText>

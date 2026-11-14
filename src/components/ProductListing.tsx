@@ -37,7 +37,9 @@ export function ProductListing({ product }: ProductListingProps) {
         <Image source={getProductImage(product.image)} style={styles.image} />
       </TouchableOpacity>
       <TouchableOpacity onPress={goToProductPage}>
-        <AppText style={styles.title}>{product.title}</AppText>
+        <AppText style={styles.title} role="heading">
+          {product.title}
+        </AppText>
       </TouchableOpacity>
       <AppText style={styles.price}>${product.price}</AppText>
       <AppText style={styles.description}>{product.shortDescription}</AppText>
