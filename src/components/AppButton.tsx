@@ -18,19 +18,18 @@ export function AppButton({
   color,
   style,
   textStyle,
-  disabled,
   ...props
 }: AppButtonProps) {
   return (
     <TouchableOpacity
       style={[
         styles.button,
+        props.disabled && styles.disabledButton,
         style,
-        { backgroundColor: colors[color], opacity: disabled ? 0.7 : 1 }
+        { backgroundColor: colors[color] }
       ]}
       activeOpacity={0.7}
-      accessibilityRole="button"
-      disabled={disabled}
+      role="button"
       {...props}
     >
       <AppText style={[styles.text, textStyle]}>{children}</AppText>
@@ -43,6 +42,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 100,
     padding: 9
+  },
+  disabledButton: {
+    opacity: 0.6
   },
   text: {
     color: "#fff",
