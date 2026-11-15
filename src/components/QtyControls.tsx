@@ -6,21 +6,17 @@ interface QtyControlsProps {
   value: number;
   onChange: (v: number) => any;
   disabled?: boolean;
-  minValue?: number;
-  maxValue?: number;
 }
 
 export function QtyControls({
   value,
   onChange,
-  disabled = false,
-  minValue = 0,
-  maxValue
+  disabled = false
 }: QtyControlsProps) {
   return (
     <View style={[styles.controls, disabled && styles.disabled]}>
       <TouchableOpacity
-        disabled={disabled || value <= minValue}
+        disabled={disabled}
         hitSlop={10}
         onPress={() => onChange(value - 1)}
       >
@@ -28,7 +24,7 @@ export function QtyControls({
       </TouchableOpacity>
       <AppText style={styles.valueText}>{value}</AppText>
       <TouchableOpacity
-        disabled={disabled || (!!maxValue && value >= maxValue)}
+        disabled={disabled}
         hitSlop={10}
         onPress={() => onChange(value + 1)}
       >

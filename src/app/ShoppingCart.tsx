@@ -1,12 +1,10 @@
-import items from "@/assets/data/cartItems.json";
-import products from "@/assets/data/toys.json";
 import { AppButton } from "@/components/AppButton";
 import { AppText } from "@/components/AppText";
 import { CartItem } from "@/components/CartItem";
 import { OrderPlacedDialog } from "@/components/OrderPlacedDialog";
 import { OrderPlacedMessage } from "@/components/OrderPlacedMessage";
 import { globalStyles } from "@/constants/globalStyles";
-import { PopulatedCartItem } from "@/types";
+import { useCart } from "@/context/CartContext";
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useMemo, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
@@ -17,23 +15,14 @@ const generateOrderId = () => {
 };
 
 const ShoppingCart = () => {
-  const [cartItems, setCartItems] = useState([...items]);
+  const { cartItems, populatedCartItems, clearItems } = useCart();
   const [orderId, setOrderId] = useState<string | null>(null);
   const [showDialog, setShowDialog] = useState(false);
-
-  const populatedCartItems = useMemo(
-    () =>
-      cartItems.map<PopulatedCartItem>(item => ({
-        ...item,
-        product: products.find(p => p.id === item.productId)
-      })),
-    [cartItems]
-  );
 
   const totalPrice = useMemo(
     () =>
       populatedCartItems.reduce(
-        (sum, item) => sum + (item.product?.price ?? 0),
+        (sum, item) => sum + (item.product?.price ?? 0) * item.qty,
         0
       ),
     [populatedCartItems]
@@ -51,14 +40,14 @@ const ShoppingCart = () => {
 
   const cancelOrder = () => {
     setOrderId(null);
-    setCartItems([]);
+    clearItems();
   };
 
   useFocusEffect(
     useCallback(() => {
       return () => {
         if (orderId) {
-          setCartItems([]);
+          clearItems();
           setOrderId(null);
           setShowDialog(false);
         }
@@ -90,7 +79,7 @@ const ShoppingCart = () => {
         </View>
         {orderId && <OrderPlacedMessage orderId={orderId} />}
         <View style={styles.bottom}>
-          <View style={styles.totlPriceRow}>
+          <View style={styles.totalPriceRow}>
             <AppText style={styles.totalPriceLabel}>Total</AppText>
             <AppText style={styles.totalPriceValue}>
               ${formattedTotalPrice}
@@ -145,7 +134,7 @@ const styles = StyleSheet.create({
   bottom: {
     gap: 15
   },
-  totlPriceRow: {
+  totalPriceRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center"

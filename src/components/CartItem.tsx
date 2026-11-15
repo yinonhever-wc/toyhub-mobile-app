@@ -1,3 +1,4 @@
+import { useCart } from "@/context/CartContext";
 import { PopulatedCartItem } from "@/types";
 import { router } from "expo-router";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
@@ -10,6 +11,8 @@ interface CartItemProps {
 }
 
 export function CartItem({ item, disableQty = false }: CartItemProps) {
+  const { updateItemQty } = useCart();
+
   return (
     <View style={styles.container}>
       <View style={styles.details}>
@@ -18,12 +21,12 @@ export function CartItem({ item, disableQty = false }: CartItemProps) {
         >
           <AppText style={styles.title}>{item.product?.title}</AppText>
         </TouchableOpacity>
-        <AppText style={styles.proudctId}>{item.productId}</AppText>
+        <AppText style={styles.productId}>{item.productId}</AppText>
         <AppText style={styles.price}>${item.product?.price}</AppText>
       </View>
       <QtyControls
         value={item.qty}
-        onChange={value => console.log("Qty changed to " + value)}
+        onChange={value => updateItemQty(item.productId, value)}
         disabled={disableQty}
       />
     </View>
@@ -45,7 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: "600"
   },
-  proudctId: {
+  productId: {
     fontSize: 16,
     fontWeight: "300"
   },

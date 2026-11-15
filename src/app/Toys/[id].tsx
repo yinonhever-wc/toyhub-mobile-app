@@ -3,6 +3,7 @@ import { AppButton } from "@/components/AppButton";
 import { AppText } from "@/components/AppText";
 import { Dialog } from "@/components/Dialog";
 import { globalStyles } from "@/constants/globalStyles";
+import { useCart } from "@/context/CartContext";
 import { router, useLocalSearchParams } from "expo-router";
 import { useMemo, useState } from "react";
 import {
@@ -33,15 +34,17 @@ export function getProductImage(filename: string): ImageSourcePropType {
 }
 
 export default function ToyDetail() {
+  const { addItem } = useCart();
+  const [showDialog, setShowDialog] = useState(false);
+
   const { id } = useLocalSearchParams<{ id: string }>();
 
   const product = useMemo(() => products.find(item => item.id === id), [id]);
 
   if (!product) return;
 
-  const [showDialog, setShowDialog] = useState(false);
-
   const addToCart = () => {
+    addItem(product.id);
     setShowDialog(true);
   };
 
