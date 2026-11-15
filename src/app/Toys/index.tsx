@@ -29,7 +29,7 @@ const Toys = () => {
 
 export default Toys;
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   listContainer: {
     rowGap: 34
   },

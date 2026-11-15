@@ -11,4 +11,13 @@ export interface Product {
   longDescription: string;
 }
 
+export interface CartItem {
+  productId: Product["id"];
+  qty: number;
+}
+
+export interface PopulatedCartItem extends CartItem {
+  product?: Product;
+}
+
 export type IconName = ComponentProps<typeof Ionicons>["name"];

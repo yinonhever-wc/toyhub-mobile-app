@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   productIdLabel: {
-    fontWeight: 700
+    fontWeight: "700"
   },
   description: {
     fontSize: 14,

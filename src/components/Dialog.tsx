@@ -123,7 +123,8 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   content: {
-    marginBottom: 40
+    marginTop: -5,
+    marginBottom: 30
   },
   buttons: {
     flexDirection: "row",
