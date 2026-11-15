@@ -1,8 +1,6 @@
+import type { IconName } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
-import type { ComponentProps } from "react";
 import { type ColorValue, StyleSheet, View } from "react-native";
-
-type IconName = ComponentProps<typeof Ionicons>["name"];
 
 const TAB_ICONS: Record<string, IconName> = {
   index: "home-outline",
