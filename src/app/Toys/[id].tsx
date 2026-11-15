@@ -77,7 +77,17 @@ export default function ToyDetail() {
         </View>
       </ScrollView>
       {showDialog && (
-        <Dialog title="Added to Cart" onClose={() => setShowDialog(false)} />
+        <Dialog
+          title="Added to Cart"
+          extraButtons={[
+            {
+              color: "primary",
+              text: "Go to Cart",
+              action: () => router.navigate("/ShoppingCart")
+            }
+          ]}
+          onClose={() => setShowDialog(false)}
+        />
       )}
     </View>
   );

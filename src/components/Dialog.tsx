@@ -1,7 +1,7 @@
 import { colors } from "@/constants/colors";
 import type { IconName } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
-import type { PropsWithChildren } from "react";
+import { useMemo, type PropsWithChildren } from "react";
 import { Pressable, ScrollView, StyleSheet, View } from "react-native";
 import Animated, {
   FadeIn,
@@ -12,12 +12,20 @@ import Animated, {
 import { AppButton } from "./AppButton";
 import { AppText } from "./AppText";
 
+interface DialogButton {
+  color: keyof typeof colors;
+  text: string;
+  action: () => any;
+}
+
 interface DialogProps extends PropsWithChildren {
   title: string;
   showIcon?: boolean;
   iconName?: IconName;
   iconSize?: number;
   iconColor?: keyof typeof colors;
+  showDefaultButton?: boolean;
+  extraButtons?: DialogButton[];
   onClose: () => any;
 }
 
@@ -27,9 +35,19 @@ export function Dialog({
   iconName = "checkmark-circle-outline",
   iconSize = 75,
   iconColor = "primary",
+  showDefaultButton = true,
+  extraButtons,
   onClose,
   children
 }: DialogProps) {
+  const buttons = useMemo(() => {
+    const items: DialogButton[] = [];
+    if (showDefaultButton)
+      items.push({ color: "secondary", text: "Continue", action: onClose });
+    if (extraButtons) items.push(...extraButtons);
+    return items;
+  }, [showDefaultButton, extraButtons]);
+
   return (
     <View style={styles.wrapper}>
       <Animated.View
@@ -57,9 +75,15 @@ export function Dialog({
             {title}
           </AppText>
           {children && <View style={styles.content}>{children}</View>}
-          <AppButton color="secondary" onPress={onClose}>
-            Continue
-          </AppButton>
+          <View style={styles.buttons}>
+            {buttons.map(item => (
+              <View key={item.text} style={styles.buttonWrapper}>
+                <AppButton color={item.color} onPress={item.action}>
+                  {item.text}
+                </AppButton>
+              </View>
+            ))}
+          </View>
         </ScrollView>
       </Animated.View>
     </View>
@@ -102,5 +126,14 @@ const styles = StyleSheet.create({
   },
   content: {
     marginBottom: 40
+  },
+  buttons: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8
+  },
+  buttonWrapper: {
+    flexGrow: 1,
+    flexBasis: "40%"
   }
 });
