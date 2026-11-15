@@ -76,7 +76,9 @@ export function Dialog({
           <View style={styles.buttons}>
             {buttons.map(item => (
               <View key={item.text} style={styles.buttonWrapper}>
-                <AppButton {...item}>{item.text}</AppButton>
+                <AppButton small {...item}>
+                  {item.text}
+                </AppButton>
               </View>
             ))}
           </View>

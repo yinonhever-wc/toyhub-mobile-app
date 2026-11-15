@@ -45,8 +45,8 @@ export function ProductListing({ product }: ProductListingProps) {
       <AppText style={styles.description}>{product.shortDescription}</AppText>
       <AppButton
         color="primary"
+        small
         style={styles.button}
-        textStyle={styles.buttonText}
         onPress={goToProductPage}
       >
         Select
@@ -84,10 +84,6 @@ const styles = StyleSheet.create({
     marginBottom: 14
   },
   button: {
-    padding: 8,
     marginTop: "auto"
-  },
-  buttonText: {
-    fontSize: 12
   }
 });
