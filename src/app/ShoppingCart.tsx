@@ -5,33 +5,15 @@ import { OrderPlacedDialog } from "@/components/OrderPlacedDialog";
 import { OrderPlacedMessage } from "@/components/OrderPlacedMessage";
 import { globalStyles } from "@/constants/globalStyles";
 import { useCart } from "@/context/CartContext";
+import { formatNumber, generateOrderId } from "@/utils";
 import { router, useFocusEffect } from "expo-router";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 
-const generateOrderId = () => {
-  const num = Math.floor(Math.random() * (9999999 - 10000 + 1)) + 10000;
-  return "OR-" + num;
-};
-
 const ShoppingCart = () => {
-  const { cartItems, populatedCartItems, clearItems } = useCart();
+  const { cartItems, populatedCartItems, totalPrice, clearItems } = useCart();
   const [orderId, setOrderId] = useState<string | null>(null);
   const [showDialog, setShowDialog] = useState(false);
-
-  const totalPrice = useMemo(
-    () =>
-      populatedCartItems.reduce(
-        (sum, item) => sum + (item.product?.price ?? 0) * item.qty,
-        0
-      ),
-    [populatedCartItems]
-  );
-
-  const formattedTotalPrice = useMemo(
-    () => totalPrice.toLocaleString("en-NZ"),
-    [totalPrice]
-  );
 
   const submitOrder = () => {
     setOrderId(generateOrderId());
@@ -82,7 +64,7 @@ const ShoppingCart = () => {
           <View style={styles.totalPriceRow}>
             <AppText style={styles.totalPriceLabel}>Total</AppText>
             <AppText style={styles.totalPriceValue}>
-              ${formattedTotalPrice}
+              ${formatNumber(totalPrice)}
             </AppText>
           </View>
           <View style={styles.buttons}>

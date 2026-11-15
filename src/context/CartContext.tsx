@@ -2,16 +2,17 @@ import products from "@/assets/data/toys.json";
 import type { CartItem, PopulatedCartItem } from "@/types";
 import {
   createContext,
-  PropsWithChildren,
   useContext,
   useMemo,
-  useState
+  useState,
+  type PropsWithChildren
 } from "react";
 
 export interface CartContextType {
   cartItems: CartItem[];
   populatedCartItems: PopulatedCartItem[];
   totalCartItems: number;
+  totalPrice: number;
   addItem: (productId: string, qty?: number) => void;
   removeItem: (productId: string) => void;
   updateItemQty: (productId: string, qty: number) => void;
@@ -35,6 +36,15 @@ export function CartProvider({ children }: PropsWithChildren) {
   const totalCartItems = useMemo(
     () => cartItems.reduce((sum, item) => sum + item.qty, 0),
     [cartItems]
+  );
+
+  const totalPrice = useMemo(
+    () =>
+      populatedCartItems.reduce(
+        (sum, item) => sum + (item.product?.price ?? 0) * item.qty,
+        0
+      ),
+    [populatedCartItems]
   );
 
   const addItem = (productId: string, qty = 1) => {
@@ -73,6 +83,7 @@ export function CartProvider({ children }: PropsWithChildren) {
         cartItems,
         populatedCartItems,
         totalCartItems,
+        totalPrice,
         addItem,
         removeItem,
         updateItemQty,
