@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { AppText } from "./AppText";
 
-interface AppButtonProps extends TouchableOpacityProps {
+export interface AppButtonProps extends TouchableOpacityProps {
   color: keyof typeof colors;
   textStyle?: StyleProp<TextStyle>;
 }

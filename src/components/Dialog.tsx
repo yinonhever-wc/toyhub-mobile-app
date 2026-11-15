@@ -9,13 +9,11 @@ import Animated, {
   FadeOut,
   FadeOutUp
 } from "react-native-reanimated";
-import { AppButton } from "./AppButton";
+import { AppButton, type AppButtonProps } from "./AppButton";
 import { AppText } from "./AppText";
 
-interface DialogButton {
-  color: keyof typeof colors;
+interface DialogButton extends AppButtonProps {
   text: string;
-  action: () => any;
 }
 
 interface DialogProps extends PropsWithChildren {
@@ -43,7 +41,7 @@ export function Dialog({
   const buttons = useMemo(() => {
     const items: DialogButton[] = [];
     if (showDefaultButton)
-      items.push({ color: "secondary", text: "Continue", action: onClose });
+      items.push({ color: "secondary", text: "Continue", onPress: onClose });
     if (extraButtons) items.push(...extraButtons);
     return items;
   }, [showDefaultButton, extraButtons]);
@@ -78,9 +76,7 @@ export function Dialog({
           <View style={styles.buttons}>
             {buttons.map(item => (
               <View key={item.text} style={styles.buttonWrapper}>
-                <AppButton color={item.color} onPress={item.action}>
-                  {item.text}
-                </AppButton>
+                <AppButton {...item}>{item.text}</AppButton>
               </View>
             ))}
           </View>

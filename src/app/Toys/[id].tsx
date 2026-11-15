@@ -83,7 +83,7 @@ export default function ToyDetail() {
             {
               color: "primary",
               text: "Go to Cart",
-              action: () => router.navigate("/ShoppingCart")
+              onPress: () => router.navigate("/ShoppingCart")
             }
           ]}
           onClose={() => setShowDialog(false)}
