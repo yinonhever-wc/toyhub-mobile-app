@@ -39,45 +39,48 @@ export default function ToyDetail() {
   if (!product) return;
 
   return (
-    <ScrollView
-      contentContainerStyle={[globalStyles.screen, globalStyles.container]}
-    >
-      <View style={styles.detailContainer}>
-        <Image source={getProductImage(product.image)} style={styles.image} />
-        <AppText style={styles.title} role="heading">
-          {product.title}
-        </AppText>
-        <AppText style={styles.price}>${product.price}</AppText>
-        <AppText style={styles.productId}>
-          <AppText style={styles.productIdLabel}>Product ID</AppText>:{" "}
-          {product.id}
-        </AppText>
-        <AppText style={styles.description}>{product.longDescription}</AppText>
-      </View>
-      <View style={styles.buttons}>
-        <AppButton color="primary">Add to Cart</AppButton>
-        <AppButton color="secondary" onPress={() => router.navigate("/Toys")}>
-          See More Toys
-        </AppButton>
+    <ScrollView contentContainerStyle={globalStyles.screen}>
+      <Image source={getProductImage(product.image)} style={styles.image} />
+      <View style={[globalStyles.container, styles.content]}>
+        <View style={styles.detailWrapper}>
+          <AppText style={styles.title} role="heading">
+            {product.title}
+          </AppText>
+          <AppText style={styles.price}>${product.price}</AppText>
+          <AppText style={styles.productId}>
+            <AppText style={styles.productIdLabel}>Product ID</AppText>:{" "}
+            {product.id}
+          </AppText>
+          <AppText style={styles.description}>
+            {product.longDescription}
+          </AppText>
+        </View>
+        <View style={styles.buttons}>
+          <AppButton color="primary">Add to Cart</AppButton>
+          <AppButton color="secondary" onPress={() => router.navigate("/Toys")}>
+            See More Toys
+          </AppButton>
+        </View>
       </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  detailContainer: {
-    flex: 1
-  },
   image: {
     width: "100%",
-    height: 265,
-    borderRadius: 5
+    height: 350
+  },
+  content: {
+    flex: 1
+  },
+  detailWrapper: {
+    flex: 1
   },
   title: {
     fontSize: 25,
     fontWeight: "700",
     textAlign: "center",
-    marginTop: 18,
     marginBottom: 8
   },
   price: {
