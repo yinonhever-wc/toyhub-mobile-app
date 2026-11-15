@@ -20,7 +20,7 @@ const index = () => {
           style={styles.image}
         />
       </View>
-      <View style={globalStyles.container}>
+      <View style={[globalStyles.container, styles.content]}>
         <AppText style={styles.heading} role="heading">
           Find Your Child's Next Favourite Toys
         </AppText>
@@ -50,6 +50,9 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%"
+  },
+  content: {
+    paddingVertical: 27
   },
   heading: {
     fontSize: 25,

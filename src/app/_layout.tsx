@@ -12,11 +12,7 @@ import {
   useFonts
 } from "@expo-google-fonts/montserrat";
 import { Tabs } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-
-SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const insets = useSafeAreaInsets();
@@ -30,10 +26,6 @@ export default function RootLayout() {
     Montserrat_700Bold,
     Montserrat_800ExtraBold
   });
-
-  useEffect(() => {
-    if (loaded || error) SplashScreen.hideAsync();
-  }, [loaded, error]);
 
   if (!loaded && !error) return null;
 

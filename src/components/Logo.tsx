@@ -1,6 +1,6 @@
 import { colors } from "@/constants/colors";
 import { useFonts } from "expo-font";
-import { Text } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
 export function Logo() {
   const [fontsLoaded] = useFonts({
@@ -9,16 +9,14 @@ export function Logo() {
 
   if (!fontsLoaded) return null;
 
-  return (
-    <Text
-      style={{
-        fontFamily: "NicoMoji-Regular",
-        fontSize: 34,
-        color: colors.secondary,
-        transform: [{ translateY: -2 }]
-      }}
-    >
-      ToyHub
-    </Text>
-  );
+  return <Text style={styles.logo}>ToyHub</Text>;
 }
+
+const styles = StyleSheet.create({
+  logo: {
+    fontFamily: "NicoMoji-Regular",
+    fontSize: 34,
+    color: colors.secondary,
+    transform: [{ translateY: -2 }]
+  }
+});
