@@ -59,8 +59,8 @@ export default function ToyDetail() {
             </AppText>
             <AppText style={styles.price}>${product.price}</AppText>
             <AppText style={styles.productId}>
-              <AppText style={styles.productIdLabel}>Product ID</AppText>:{" "}
-              {product.id}
+              <AppText style={styles.productIdLabel}>Product ID</AppText>:
+              {" " + product.id}
             </AppText>
             <AppText style={styles.description}>
               {product.longDescription}
@@ -126,7 +126,8 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   productIdLabel: {
-    fontWeight: "700"
+    fontWeight: "700",
+    marginRight: 4
   },
   description: {
     fontSize: 14,
