@@ -6,7 +6,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 const NUM_COLUMNS = 2;
 const GUTTER = 16;
 
-const Toys = () => {
+export default function Toys() {
   return (
     <FlatList
       data={products}
@@ -25,9 +25,7 @@ const Toys = () => {
       )}
     />
   );
-};
-
-export default Toys;
+}
 
 const styles = StyleSheet.create({
   listContainer: {

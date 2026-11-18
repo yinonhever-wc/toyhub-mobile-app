@@ -11,7 +11,7 @@ const FEATURES = [
   "Adapted to various ages"
 ];
 
-const index = () => {
+export default function index() {
   return (
     <ScrollView contentContainerStyle={globalStyles.screen}>
       <View style={styles.imageContainer}>
@@ -38,9 +38,7 @@ const index = () => {
       </View>
     </ScrollView>
   );
-};
-
-export default index;
+}
 
 const styles = StyleSheet.create({
   imageContainer: {

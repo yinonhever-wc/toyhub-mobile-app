@@ -12,7 +12,7 @@ import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 
-const ShoppingCart = () => {
+export default function ShoppingCart() {
   const { cartItems, populatedCartItems, totalPrice, clearItems } = useCart();
   const [orderId, setOrderId] = useState<string | null>(null);
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
@@ -117,9 +117,7 @@ const ShoppingCart = () => {
       )}
     </View>
   );
-};
-
-export default ShoppingCart;
+}
 
 const styles = StyleSheet.create({
   container: {
