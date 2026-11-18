@@ -1,6 +1,7 @@
 import { AppButton } from "@/components/AppButton";
 import { AppText } from "@/components/AppText";
 import { CartItem } from "@/components/CartItem";
+import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { OrderPlacedDialog } from "@/components/OrderPlacedDialog";
 import { OrderPlacedMessage } from "@/components/OrderPlacedMessage";
 import { globalStyles } from "@/constants/globalStyles";
@@ -13,11 +14,12 @@ import { ScrollView, StyleSheet, View } from "react-native";
 const ShoppingCart = () => {
   const { cartItems, populatedCartItems, totalPrice, clearItems } = useCart();
   const [orderId, setOrderId] = useState<string | null>(null);
-  const [showDialog, setShowDialog] = useState(false);
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+  const [showConfirmCancel, setShowConfirmCancel] = useState(false);
 
   const submitOrder = () => {
     setOrderId(generateOrderId());
-    setShowDialog(true);
+    setShowSuccessDialog(true);
   };
 
   const cancelOrder = () => {
@@ -31,7 +33,7 @@ const ShoppingCart = () => {
         if (orderId) {
           clearItems();
           setOrderId(null);
-          setShowDialog(false);
+          setShowSuccessDialog(false);
         }
       };
     }, [orderId])
@@ -69,7 +71,10 @@ const ShoppingCart = () => {
           </View>
           <View style={styles.buttons}>
             {orderId ? (
-              <AppButton color="error" onPress={cancelOrder}>
+              <AppButton
+                color="error"
+                onPress={() => setShowConfirmCancel(true)}
+              >
                 Cancel Order
               </AppButton>
             ) : (
@@ -90,10 +95,19 @@ const ShoppingCart = () => {
           </View>
         </View>
       </ScrollView>
-      {orderId && showDialog && (
+      {orderId && showSuccessDialog && (
         <OrderPlacedDialog
           orderId={orderId}
-          onClose={() => setShowDialog(false)}
+          onClose={() => setShowSuccessDialog(false)}
+        />
+      )}
+      {showConfirmCancel && (
+        <ConfirmDialog
+          title={`Cancel Order ${orderId}`}
+          text="Are you sure you want to cancel this order? This action is irreversible."
+          confirmButtonColor="error"
+          onConfirm={cancelOrder}
+          onClose={() => setShowConfirmCancel(false)}
         />
       )}
     </View>
