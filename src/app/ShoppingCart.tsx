@@ -34,6 +34,7 @@ const ShoppingCart = () => {
           clearItems();
           setOrderId(null);
           setShowSuccessDialog(false);
+          setShowConfirmCancel(false);
         }
       };
     }, [orderId])
