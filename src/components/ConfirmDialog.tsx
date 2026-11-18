@@ -29,7 +29,6 @@ export function ConfirmDialog({
       title={title}
       onClose={onClose}
       iconName="warning-outline"
-      iconColor="primary"
       showDefaultButton={false}
       extraButtons={[
         {
