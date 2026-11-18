@@ -13,7 +13,7 @@ export default function ToyDetail() {
   const { addItem } = useCart();
   const [showDialog, setShowDialog] = useState(false);
 
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id } = useLocalSearchParams();
 
   const product = useMemo(() => products.find(item => item.id === id), [id]);
 
