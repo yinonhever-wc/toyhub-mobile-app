@@ -4,34 +4,10 @@ import { AppText } from "@/components/AppText";
 import { Dialog } from "@/components/Dialog";
 import { globalStyles } from "@/constants/globalStyles";
 import { useCart } from "@/context/CartContext";
+import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import { useMemo, useState } from "react";
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  View,
-  type ImageSourcePropType
-} from "react-native";
-
-/**
- * Metro bundles images at build time, so require() needs a literal string.
- * `require(`.../${name}`)` is not supported, so every image is listed here
- * and looked up by the filename stored in assets/data/toys.json.
- */
-const PRODUCT_IMAGES: Record<string, ImageSourcePropType> = {
-  "Wooden train set.jpg": require("@/assets/images/Wooden train set.jpg"),
-  "F0413DAA-AA98-446F-915B-7C05AA820D66.webp": require("@/assets/images/F0413DAA-AA98-446F-915B-7C05AA820D66.webp"),
-  "Rainbow learning blocks.jpg": require("@/assets/images/Rainbow learning blocks.jpg"),
-  "Walking robot.webp": require("@/assets/images/Walking robot.webp")
-};
-
-// Used for toys in toys.json whose image file hasn't been added yet.
-const PLACEHOLDER: ImageSourcePropType = require("@/assets/images/logo-glow.png");
-
-export function getProductImage(filename: string): ImageSourcePropType {
-  return PRODUCT_IMAGES[filename] ?? PLACEHOLDER;
-}
+import { ScrollView, StyleSheet, View } from "react-native";
 
 export default function ToyDetail() {
   const { addItem } = useCart();
@@ -51,7 +27,7 @@ export default function ToyDetail() {
   return (
     <View style={[{ flex: 1 }]}>
       <ScrollView contentContainerStyle={globalStyles.screen}>
-        <Image source={getProductImage(product.image)} style={styles.image} />
+        <Image source={{ uri: product.image }} style={styles.image} />
         <View style={[globalStyles.container, styles.content]}>
           <View style={styles.detailWrapper}>
             <AppText style={styles.title} role="heading">

@@ -1,28 +1,9 @@
 import type { Product } from "@/types";
+import { Image } from "expo-image";
 import { router } from "expo-router";
-import type { ImageSourcePropType } from "react-native";
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { AppButton } from "./AppButton";
 import { AppText } from "./AppText";
-
-/**
- * Metro bundles images at build time, so require() needs a literal string.
- * `require(`.../${name}`)` is not supported, so every image is listed here
- * and looked up by the filename stored in assets/data/toys.json.
- */
-const PRODUCT_IMAGES: Record<string, ImageSourcePropType> = {
-  "Wooden train set.jpg": require("../../assets/images/Wooden train set.jpg"),
-  "F0413DAA-AA98-446F-915B-7C05AA820D66.webp": require("../../assets/images/F0413DAA-AA98-446F-915B-7C05AA820D66.webp"),
-  "Rainbow learning blocks.jpg": require("../../assets/images/Rainbow learning blocks.jpg"),
-  "Walking robot.webp": require("../../assets/images/Walking robot.webp")
-};
-
-// Used for toys in toys.json whose image file hasn't been added yet.
-const PLACEHOLDER: ImageSourcePropType = require("../../assets/images/logo-glow.png");
-
-export function getProductImage(filename: string): ImageSourcePropType {
-  return PRODUCT_IMAGES[filename] ?? PLACEHOLDER;
-}
 
 interface ProductListingProps {
   product: Product;
@@ -34,7 +15,7 @@ export function ProductListing({ product }: ProductListingProps) {
   return (
     <View style={styles.container}>
       <TouchableOpacity activeOpacity={0.5} onPress={goToProductPage}>
-        <Image source={getProductImage(product.image)} style={styles.image} />
+        <Image source={{ uri: product.image }} style={styles.image} />
       </TouchableOpacity>
       <TouchableOpacity onPress={goToProductPage}>
         <AppText style={styles.title} role="heading">

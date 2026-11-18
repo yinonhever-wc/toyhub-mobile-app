@@ -132,12 +132,12 @@ const styles = StyleSheet.create({
   empty: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    gap: 10
   },
   emptyText: {
     fontSize: 18,
-    textAlign: "center",
-    marginTop: 10
+    textAlign: "center"
   },
   bottom: {
     gap: 15
