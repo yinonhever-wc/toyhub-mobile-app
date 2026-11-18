@@ -1,5 +1,5 @@
 import { colors } from "@/constants/colors";
-import type { IconName } from "@/types";
+import type { ColorType, IconName } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
 import { useMemo, type PropsWithChildren } from "react";
 import { Pressable, ScrollView, StyleSheet, View } from "react-native";
@@ -21,7 +21,7 @@ interface DialogProps extends PropsWithChildren {
   showIcon?: boolean;
   iconName?: IconName;
   iconSize?: number;
-  iconColor?: keyof typeof colors;
+  iconColor?: ColorType;
   showDefaultButton?: boolean;
   extraButtons?: DialogButton[];
   onClose: () => any;

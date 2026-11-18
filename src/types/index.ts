@@ -1,3 +1,4 @@
+import type { colors } from "@/constants/colors";
 import type { Ionicons } from "@expo/vector-icons";
 import type { ComponentProps } from "react";
 
@@ -21,3 +22,5 @@ export interface PopulatedCartItem extends CartItem {
 }
 
 export type IconName = ComponentProps<typeof Ionicons>["name"];
+
+export type ColorType = keyof typeof colors;

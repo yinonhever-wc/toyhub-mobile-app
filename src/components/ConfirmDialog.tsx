@@ -1,4 +1,4 @@
-import { colors } from "@/constants/colors";
+import type { ColorType } from "@/types";
 import { StyleSheet } from "react-native";
 import { AppText } from "./AppText";
 import { Dialog } from "./Dialog";
@@ -7,9 +7,9 @@ interface ConfirmDialogProps {
   title: string;
   text: string;
   confirmButtonText?: string;
-  confirmButtonColor?: keyof typeof colors;
+  confirmButtonColor?: ColorType;
   cancelButtonText?: string;
-  cancelButtonColor?: keyof typeof colors;
+  cancelButtonColor?: ColorType;
   onConfirm: () => any;
   onClose: () => any;
 }

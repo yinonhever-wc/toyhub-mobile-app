@@ -1,4 +1,5 @@
 import { colors } from "@/constants/colors";
+import type { ColorType } from "@/types";
 import {
   StyleSheet,
   TouchableOpacity,
@@ -9,7 +10,7 @@ import {
 import { AppText } from "./AppText";
 
 export interface AppButtonProps extends TouchableOpacityProps {
-  color: keyof typeof colors;
+  color: ColorType;
   small?: boolean;
   textStyle?: StyleProp<TextStyle>;
 }
