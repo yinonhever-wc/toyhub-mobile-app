@@ -72,7 +72,7 @@ export function Dialog({
           <AppText style={styles.title} role="heading">
             {title}
           </AppText>
-          {children && <View style={styles.content}>{children}</View>}
+          {children && <AppText style={styles.content}>{children}</AppText>}
           <View style={styles.buttons}>
             {buttons.map(item => (
               <View key={item.text} style={styles.buttonWrapper}>
@@ -124,7 +124,9 @@ const styles = StyleSheet.create({
   },
   content: {
     marginTop: -5,
-    marginBottom: 30
+    marginBottom: 30,
+    fontSize: 16,
+    textAlign: "center"
   },
   buttons: {
     flexDirection: "row",

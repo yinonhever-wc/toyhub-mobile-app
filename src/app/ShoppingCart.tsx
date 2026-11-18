@@ -7,6 +7,7 @@ import { OrderPlacedMessage } from "@/components/OrderPlacedMessage";
 import { globalStyles } from "@/constants/globalStyles";
 import { useCart } from "@/context/CartContext";
 import { formatNumber, generateOrderId } from "@/utils";
+import { Ionicons } from "@expo/vector-icons";
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
@@ -49,19 +50,22 @@ const ShoppingCart = () => {
           styles.container
         ]}
       >
-        <View style={styles.items}>
-          {cartItems.length ? (
-            populatedCartItems.map(item => (
+        {cartItems.length ? (
+          <View style={styles.items}>
+            {populatedCartItems.map(item => (
               <CartItem
                 key={item.productId}
                 item={item}
                 disableQty={!!orderId}
               />
-            ))
-          ) : (
+            ))}
+          </View>
+        ) : (
+          <View style={styles.empty}>
+            <Ionicons name="cart-outline" size={100} />
             <AppText style={styles.emptyText}>Your cart is empty.</AppText>
-          )}
-        </View>
+          </View>
+        )}
         {orderId && <OrderPlacedMessage orderId={orderId} />}
         <View style={styles.bottom}>
           <View style={styles.totalPriceRow}>
@@ -125,8 +129,15 @@ const styles = StyleSheet.create({
   items: {
     gap: 22
   },
+  empty: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   emptyText: {
-    fontSize: 16
+    fontSize: 18,
+    textAlign: "center",
+    marginTop: 10
   },
   bottom: {
     gap: 15

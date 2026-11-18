@@ -1,6 +1,4 @@
 import type { ColorType } from "@/types";
-import { StyleSheet } from "react-native";
-import { AppText } from "./AppText";
 import { Dialog } from "./Dialog";
 
 interface ConfirmDialogProps {
@@ -46,14 +44,7 @@ export function ConfirmDialog({
         }
       ]}
     >
-      <AppText style={styles.text}>{text}</AppText>
+      {text}
     </Dialog>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 16,
-    textAlign: "center"
-  }
-});

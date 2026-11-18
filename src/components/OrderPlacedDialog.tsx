@@ -22,8 +22,7 @@ export function OrderPlacedDialog({
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 18,
-    textAlign: "center"
+    fontSize: 18
   },
   textStrong: {
     fontWeight: 700
