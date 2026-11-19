@@ -25,7 +25,7 @@ export default function ToyDetail() {
   };
 
   return (
-    <View style={[{ flex: 1 }]}>
+    <View style={globalStyles.screen}>
       <ScrollView contentContainerStyle={globalStyles.screen}>
         <Image source={{ uri: product.image }} style={styles.image} />
         <View style={[globalStyles.container, styles.content]}>
