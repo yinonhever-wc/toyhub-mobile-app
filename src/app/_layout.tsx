@@ -7,8 +7,8 @@ import { Tabs } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function RootLayout() {
-  const insets = useSafeAreaInsets();
   const [loaded, error] = useAppFonts();
+  const insets = useSafeAreaInsets();
 
   if (!loaded && !error) return null;
 
@@ -25,14 +25,8 @@ export default function RootLayout() {
           headerRightContainerStyle: { paddingRight: 16 },
           tabBarShowLabel: false,
           tabBarStyle: { height: 55 + insets.bottom },
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              routeName={route.name}
-              color={color}
-              focused={focused}
-            />
-          ),
-          tabBarIconStyle: { width: "100%", height: "100%" },
+          tabBarIcon: props => <TabBarIcon routeName={route.name} {...props} />,
+          tabBarIconStyle: { flex: 1 },
           sceneStyle: { backgroundColor: "#fff" }
         })}
       >
