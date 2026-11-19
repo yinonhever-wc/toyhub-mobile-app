@@ -30,7 +30,7 @@ export function CartProvider({ children }: PropsWithChildren) {
         ...cartItem,
         product: products?.find(product => product.id === cartItem.productId)
       })),
-    [cartItems, products]
+    [cartItems]
   );
 
   const totalCartItems = useMemo(

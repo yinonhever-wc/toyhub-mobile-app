@@ -29,8 +29,8 @@ export function AppButton({
         styles.button,
         small && styles.smallButton,
         props.disabled && styles.disabledButton,
-        style,
-        { backgroundColor: colors[color] }
+        { backgroundColor: colors[color] },
+        style
       ]}
       activeOpacity={0.7}
       role="button"

@@ -17,7 +17,7 @@ export default function ToyDetail() {
 
   const product = useMemo(() => products.find(item => item.id === id), [id]);
 
-  if (!product) return;
+  if (!product) return null;
 
   const addToCart = () => {
     addItem(product.id);

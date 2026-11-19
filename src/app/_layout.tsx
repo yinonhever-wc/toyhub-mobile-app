@@ -2,31 +2,13 @@ import { CartButton } from "@/components/CartButton";
 import { Logo } from "@/components/Logo";
 import { TabBarIcon } from "@/components/TabBarIcon";
 import { CartProvider } from "@/context/CartContext";
-import {
-  Montserrat_200ExtraLight,
-  Montserrat_300Light,
-  Montserrat_400Regular,
-  Montserrat_500Medium,
-  Montserrat_600SemiBold,
-  Montserrat_700Bold,
-  Montserrat_800ExtraBold,
-  useFonts
-} from "@expo-google-fonts/montserrat";
+import { useAppFonts } from "@/hooks/use-app-fonts";
 import { Tabs } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function RootLayout() {
   const insets = useSafeAreaInsets();
-
-  const [loaded, error] = useFonts({
-    Montserrat_200ExtraLight,
-    Montserrat_300Light,
-    Montserrat_400Regular,
-    Montserrat_500Medium,
-    Montserrat_600SemiBold,
-    Montserrat_700Bold,
-    Montserrat_800ExtraBold
-  });
+  const [loaded, error] = useAppFonts();
 
   if (!loaded && !error) return null;
 

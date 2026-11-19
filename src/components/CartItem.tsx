@@ -1,5 +1,5 @@
 import { useCart } from "@/context/CartContext";
-import { PopulatedCartItem } from "@/types";
+import type { PopulatedCartItem } from "@/types";
 import { router } from "expo-router";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { AppText } from "./AppText";
