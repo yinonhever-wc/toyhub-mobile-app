@@ -17,9 +17,7 @@ const DEFAULT_WEIGHT = "400";
 
 export function AppText({ style, ...props }: TextProps) {
   const flatStyle = StyleSheet.flatten(style) || {};
-  const weightKey = flatStyle.fontWeight
-    ? String(flatStyle.fontWeight)
-    : DEFAULT_WEIGHT;
+  const weightKey = flatStyle.fontWeight?.toString() ?? DEFAULT_WEIGHT;
   const fontFamily = WEIGHTS[weightKey] ?? WEIGHTS[DEFAULT_WEIGHT];
 
   return (
