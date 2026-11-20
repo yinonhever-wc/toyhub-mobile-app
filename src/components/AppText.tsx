@@ -1,4 +1,4 @@
-import { StyleSheet, Text, type TextProps, type TextStyle } from "react-native";
+import { StyleSheet, Text, type TextProps } from "react-native";
 
 const WEIGHTS: Record<string, string> = {
   "200": "Montserrat_200ExtraLight",
@@ -16,11 +16,11 @@ const WEIGHTS: Record<string, string> = {
 const DEFAULT_WEIGHT = "400";
 
 export function AppText({ style, ...props }: TextProps) {
-  const flatStyle = (StyleSheet.flatten(style) || {}) as TextStyle;
+  const flatStyle = StyleSheet.flatten(style) || {};
   const weightKey = flatStyle.fontWeight
     ? String(flatStyle.fontWeight)
     : DEFAULT_WEIGHT;
-  const fontFamily = WEIGHTS[weightKey];
+  const fontFamily = WEIGHTS[weightKey] ?? WEIGHTS[DEFAULT_WEIGHT];
 
   return (
     <Text {...props} style={[style, { fontFamily, fontWeight: undefined }]} />
