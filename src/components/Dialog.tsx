@@ -24,7 +24,7 @@ interface DialogProps extends PropsWithChildren {
   iconColor?: ColorType;
   showDefaultButton?: boolean;
   extraButtons?: DialogButton[];
-  onClose: () => any;
+  onClose: () => void;
 }
 
 export function Dialog({

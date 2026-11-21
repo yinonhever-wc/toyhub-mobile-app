@@ -4,7 +4,7 @@ import { Dialog } from "./Dialog";
 
 interface OrderPlacedDialogProps {
   orderId: string;
-  onClose: () => any;
+  onClose: () => void;
 }
 
 export function OrderPlacedDialog({

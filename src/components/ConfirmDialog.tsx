@@ -8,8 +8,8 @@ interface ConfirmDialogProps {
   confirmButtonColor?: ColorType;
   cancelButtonText?: string;
   cancelButtonColor?: ColorType;
-  onConfirm: () => any;
-  onClose: () => any;
+  onConfirm: () => void;
+  onClose: () => void;
 }
 
 export function ConfirmDialog({

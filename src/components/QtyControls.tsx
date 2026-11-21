@@ -4,29 +4,38 @@ import { AppText } from "./AppText";
 
 interface QtyControlsProps {
   value: number;
-  onChange: (v: number) => any;
+  onChange: (v: number) => void;
   disabled?: boolean;
+  minValue?: number;
+  maxValue?: number;
 }
 
 export function QtyControls({
   value,
   onChange,
-  disabled = false
+  disabled = false,
+  minValue,
+  maxValue
 }: QtyControlsProps) {
+  const decrementDisabled = minValue !== undefined && value <= minValue;
+  const incrementDisabled = maxValue !== undefined && value >= maxValue;
+
   return (
-    <View style={[styles.controls, disabled && styles.disabled]}>
+    <View style={[styles.controls, disabled && styles.controlsDisabled]}>
       <TouchableOpacity
-        disabled={disabled}
+        disabled={disabled || decrementDisabled}
         hitSlop={10}
         onPress={() => onChange(value - 1)}
+        style={decrementDisabled && styles.buttonDisabled}
       >
         <AppText style={styles.buttonText}>-</AppText>
       </TouchableOpacity>
       <AppText style={styles.valueText}>{value}</AppText>
       <TouchableOpacity
-        disabled={disabled}
+        disabled={disabled || incrementDisabled}
         hitSlop={10}
         onPress={() => onChange(value + 1)}
+        style={incrementDisabled && styles.buttonDisabled}
       >
         <AppText style={styles.buttonText}>+</AppText>
       </TouchableOpacity>
@@ -37,7 +46,7 @@ export function QtyControls({
 const styles = StyleSheet.create({
   controls: {
     backgroundColor: colors.tertiary,
-    borderRadius: 5,
+    borderRadius: 100,
     paddingHorizontal: 14.5,
     height: 45,
     width: 92,
@@ -45,8 +54,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between"
   },
-  disabled: {
+  controlsDisabled: {
     opacity: 0.5
+  },
+  buttonDisabled: {
+    opacity: 0.2
   },
   valueText: {
     fontSize: 15,
