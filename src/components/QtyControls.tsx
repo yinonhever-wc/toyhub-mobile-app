@@ -8,6 +8,7 @@ interface QtyControlsProps {
   disabled?: boolean;
   minValue?: number;
   maxValue?: number;
+  autoHeight?: boolean;
 }
 
 export function QtyControls({
@@ -15,13 +16,20 @@ export function QtyControls({
   onChange,
   disabled = false,
   minValue,
-  maxValue
+  maxValue,
+  autoHeight = false
 }: QtyControlsProps) {
   const decrementDisabled = minValue !== undefined && value <= minValue;
   const incrementDisabled = maxValue !== undefined && value >= maxValue;
 
   return (
-    <View style={[styles.controls, disabled && styles.controlsDisabled]}>
+    <View
+      style={[
+        styles.controls,
+        disabled && styles.controlsDisabled,
+        autoHeight && styles.controlsAutoHeight
+      ]}
+    >
       <TouchableOpacity
         disabled={disabled || decrementDisabled}
         hitSlop={10}
@@ -53,6 +61,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between"
+  },
+  controlsAutoHeight: {
+    height: "auto"
   },
   controlsDisabled: {
     opacity: 0.5

@@ -2,6 +2,7 @@ import products from "@/assets/data/toys.json";
 import { AppButton } from "@/components/AppButton";
 import { AppText } from "@/components/AppText";
 import { Dialog } from "@/components/Dialog";
+import { QtyControls } from "@/components/QtyControls";
 import { globalStyles } from "@/constants/globalStyles";
 import { useCart } from "@/context/CartContext";
 import { Image } from "expo-image";
@@ -11,6 +12,7 @@ import { ScrollView, StyleSheet, View } from "react-native";
 
 export default function ToyDetail() {
   const { addItem } = useCart();
+  const [qty, setQty] = useState(1);
   const [showDialog, setShowDialog] = useState(false);
 
   const { id } = useLocalSearchParams();
@@ -20,7 +22,7 @@ export default function ToyDetail() {
   if (!product) return null;
 
   const addToCart = () => {
-    addItem(product.id);
+    addItem(product.id, qty);
     setShowDialog(true);
   };
 
@@ -43,9 +45,21 @@ export default function ToyDetail() {
             </AppText>
           </View>
           <View style={styles.buttons}>
-            <AppButton color="primary" onPress={addToCart}>
-              Add to Cart
-            </AppButton>
+            <View style={styles.addToCartRow}>
+              <AppButton
+                color="primary"
+                onPress={addToCart}
+                style={styles.addToCartButton}
+              >
+                Add to Cart
+              </AppButton>
+              <QtyControls
+                value={qty}
+                onChange={setQty}
+                minValue={1}
+                autoHeight
+              />
+            </View>
             <AppButton
               color="secondary"
               onPress={() => router.navigate("/Toys")}
@@ -112,5 +126,12 @@ const styles = StyleSheet.create({
   buttons: {
     gap: 10,
     marginTop: 29
+  },
+  addToCartRow: {
+    flexDirection: "row",
+    gap: 8
+  },
+  addToCartButton: {
+    flex: 1
   }
 });
