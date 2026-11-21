@@ -15,11 +15,11 @@ export function QtyControls({
   value,
   onChange,
   disabled = false,
-  minValue,
+  minValue = 0,
   maxValue,
   autoHeight = false
 }: QtyControlsProps) {
-  const decrementDisabled = minValue !== undefined && value <= minValue;
+  const decrementDisabled = value <= minValue;
   const incrementDisabled = maxValue !== undefined && value >= maxValue;
 
   return (
