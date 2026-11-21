@@ -71,7 +71,7 @@ export default function ToyDetail() {
       </ScrollView>
       {showDialog && (
         <Dialog
-          title="Added to Cart"
+          title={`Added ${qty} to Cart`}
           extraButtons={[
             {
               color: "primary",
