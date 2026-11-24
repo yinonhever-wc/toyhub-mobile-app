@@ -28,7 +28,7 @@ export function CartProvider({ children }: PropsWithChildren) {
     () =>
       cartItems.map<PopulatedCartItem>(cartItem => ({
         ...cartItem,
-        product: products?.find(product => product.id === cartItem.productId)
+        product: products.find(product => product.id === cartItem.productId)
       })),
     [cartItems]
   );
@@ -47,32 +47,28 @@ export function CartProvider({ children }: PropsWithChildren) {
     [populatedCartItems]
   );
 
-  const addItem = (productId: string, qty = 1) => {
-    const clonedItems = [...cartItems];
-    const existingItem = clonedItems.find(item => item.productId === productId);
-    if (existingItem) {
-      const index = clonedItems.indexOf(existingItem);
-      clonedItems.splice(index, 1, {
-        ...existingItem,
-        qty: existingItem.qty + qty
-      });
-    } else {
-      clonedItems.push({ productId, qty });
-    }
-    setCartItems(clonedItems);
-  };
+  const addItem = (productId: string, qty = 1) =>
+    setCartItems(items =>
+      items.some(item => item.productId === productId)
+        ? items.map(item =>
+            item.productId === productId
+              ? { ...item, qty: item.qty + qty }
+              : item
+          )
+        : [...items, { productId, qty }]
+    );
 
   const removeItem = (productId: string) =>
     setCartItems(cartItems.filter(item => item.productId !== productId));
 
   const updateItemQty = (productId: string, qty: number) => {
-    if (qty === 0) return removeItem(productId);
-    const clonedItems = [...cartItems];
-    const item = clonedItems.find(item => item.productId === productId);
-    if (!item) return;
-    const index = clonedItems.indexOf(item);
-    clonedItems.splice(index, 1, { ...item, qty });
-    setCartItems(clonedItems);
+    if (qty > 0)
+      setCartItems(items =>
+        items.map(item =>
+          item.productId === productId ? { ...item, qty } : item
+        )
+      );
+    else removeItem(productId);
   };
 
   const clearItems = () => setCartItems([]);
