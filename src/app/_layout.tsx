@@ -31,7 +31,7 @@ export default function RootLayout() {
         })}
       >
         <Tabs.Screen name="index" options={{ headerTitle: () => <Logo /> }} />
-        <Tabs.Screen name="Toys" options={{ title: "Shop" }} />
+        <Tabs.Screen name="Toys" options={{ title: "Browse Toys" }} />
         <Tabs.Screen
           name="ShoppingCart"
           options={{
