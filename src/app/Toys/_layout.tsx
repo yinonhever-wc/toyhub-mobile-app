@@ -1,3 +1,4 @@
+import { globalStyles } from "@/constants/globalStyles";
 import { Stack } from "expo-router";
 
 export default function ToysLayout() {
@@ -5,7 +6,7 @@ export default function ToysLayout() {
     <Stack
       screenOptions={{
         headerShown: false,
-        contentStyle: { backgroundColor: "#fff" }
+        contentStyle: globalStyles.scene
       }}
     >
       <Stack.Screen name="index" />

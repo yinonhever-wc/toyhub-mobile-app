@@ -1,6 +1,7 @@
 import { CartButton } from "@/components/CartButton";
 import { Logo } from "@/components/Logo";
 import { TabBarIcon } from "@/components/TabBarIcon";
+import { globalStyles } from "@/constants/globalStyles";
 import { CartProvider } from "@/context/CartContext";
 import { useAppFonts } from "@/hooks/use-app-fonts";
 import { Tabs } from "expo-router";
@@ -27,10 +28,20 @@ export default function RootLayout() {
           tabBarStyle: { height: 55 + insets.bottom },
           tabBarIcon: props => <TabBarIcon routeName={route.name} {...props} />,
           tabBarIconStyle: { flex: 1 },
-          sceneStyle: { backgroundColor: "#fff" }
+          sceneStyle: globalStyles.scene
         })}
       >
-        <Tabs.Screen name="index" options={{ headerTitle: () => <Logo /> }} />
+        <Tabs.Screen
+          name="index"
+          options={{
+            headerTitle: () => <Logo />,
+            tabBarStyle: { display: "none" },
+            sceneStyle: {
+              ...globalStyles.scene,
+              paddingBottom: insets.bottom
+            }
+          }}
+        />
         <Tabs.Screen name="Toys" options={{ title: "Browse Toys" }} />
         <Tabs.Screen
           name="ShoppingCart"
