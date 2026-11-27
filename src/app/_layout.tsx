@@ -36,10 +36,7 @@ export default function RootLayout() {
           options={{
             headerTitle: () => <Logo />,
             tabBarStyle: { display: "none" },
-            sceneStyle: {
-              ...globalStyles.scene,
-              paddingBottom: insets.bottom
-            }
+            sceneStyle: [globalStyles.scene, { paddingBottom: insets.bottom }]
           }}
         />
         <Tabs.Screen name="Toys" options={{ title: "Browse Toys" }} />
